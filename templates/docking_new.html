@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>小工具平台 - Index</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/assets/img/tsl.png" rel="icon">
+    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header">
+    <div class="container">
+
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="index.html"><span>星斗云</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav class="nav-menu float-right d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="/index">首页 <i class="la la-angle-down"></i></a></li>
+                <li><a href="/docking_new">虚拟对接</a></li>
+                <li><a href="/protein_3D">蛋白三维结构预测</a></li>
+                <li><a href="/get_target">药物靶点收集</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Our Team Section ======= -->
+<section id="team" class="team">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>虚拟筛选</h2>
+            <p>
+                AutoDock是一款开源的分子模拟软件，为科研工作者研究生物大分子（蛋白质）与小分子（配体）复合物的相互作用，提供了极大的便利</p>
+        </div>
+        <!-- ======= Docking Section ======= -->
+        <section class="counts section-bg">
+            <div class="content-main">
+                <div class="container">
+
+                    <style type="text/css">
+                        td {
+                            padding: 2px
+                        }
+                    </style>
+
+{#                    <div class="col-md-10 .col-sm-10 col-lg-10 top-right" >#}
+                    <div>
+                        <div class="content" >
+                            <div class="grids">
+                                <div class="grid box">
+                                    <div class="singlepage">
+									<span style="color:red"> 由于您当前是访客用户，因此所有用户都可以看到您的结果。<br>
+                                        <a href="../register.php" style="color:red" pcked="done">您可以注册或登录以保护您的文件。
+                                        </a>
+                                    </span>
+                                        <br>
+                                        <br>
+                                        <form id="task_submit" action="/docking/check" method="post"
+                                              enctype="multipart/form-data" class="">
+                                            <fieldset style="padding:10px 10px 10px;">
+                                                <legend>第一步： 设置任务名</legend>
+                                                <table>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th width="150%"> 任务名:</th>
+                                                        <td>
+                                                            <input name="task_title" type="text" id="task_title"
+                                                                   placeholder="My_job" size="40" maxlength="255">
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;</td>
+                                                        <td>&nbsp;&nbsp;</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </fieldset>
+                                            <p>&nbsp;</p>
+                                            <fieldset style="padding:10px 10px 10px;">
+                                                <legend>第二步：上传配体文件(.pdbqt, .sdf or .mol2)</legend>
+                                                <table>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th width="150%"> 配体文件：</th>
+                                                        <td>
+                                                            <input type="file" name="ligand_file"
+                                                                   accept=".sdf, .pdbqt, .mol">
+                                                            <a
+                                                                    href="../static/test.sdf" target="_blank"
+                                                                    pcked="done">Sample File 1</a><br>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;</td>
+                                                        <td>&nbsp;&nbsp;</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <br>
+                                                <small>
+                                                    <p>注： <br>
+                                                        1. 提交的小分子名称不能包含空格等特殊字符，如"/"、"("、")"、"#"、"$"、"%"、"&"等。<br>
+                                                        2. 目前可用的计算机资源有限，一份job只计算一个分子配体，如果想对多个分子进行对接可以联系<a
+                                                                href="tsl-zhangruiwen@tasly.com" pcked="done">我们</a>。
+                                                    </p>
+                                                </small>
+                                            </fieldset>
+                                            <p>&nbsp;</p>
+                                            <fieldset style="padding:10px 10px 10px;">
+                                                <legend>第三步：上传靶点/蛋白3D结构文件(.pdbqt or .pdb)</legend>
+                                                <table>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th width="150%">蛋白结构文件</th>
+                                                        <td>
+                                                            <input type="file" name="protein_file"
+                                                                   accept=".sdf, .pdbqt, .mol">
+                                                            <a
+                                                                    href="../static/protein.pdbqt" target="_blank"
+                                                                    pcked="done">Sample File 2</a><br>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;</td>
+                                                        <td>&nbsp;&nbsp;</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </fieldset>
+                                            <p>&nbsp;</p>
+                                            <p align="center">
+                                                <input id="TargetClear" type="reset" value="清空"
+                                                       style="padding:0px 5px;">
+                                                &nbsp;&nbsp;
+                                                <input id="submit" type="submit" value="提交"
+                                                       style="padding:0px 5px;">
+                                            </p>
+                                        </form>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section><!-- End Counts Section -->
+
+    </div>
+</section><!-- End Our Team Section -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Mamba</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="static/assets/vendor/jquery/jquery.min.js"></script>
+<script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="static/assets/vendor/php-email-form/validate.js"></script>
+<script src="static/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+<script src="static/assets/vendor/venobox/venobox.min.js"></script>
+<script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="static/assets/vendor/counterup/counterup.min.js"></script>
+<script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/assets/vendor/aos/aos.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#TargetSelect").click(function () {
+            var url = "SelectTarget.php";
+            url = url + "?TargetName=" + $("#TargetName").val().toLowerCase().split(' ').join('%20');
+            url = url + "&UniProtID=" + $("#UniProtID").val().toLowerCase().split(' ').join('%20');
+            url = url + "&PDBID=" + $("#PDBID").val().toLowerCase().split(' ').join('%20');
+            url = url + "&Organism=";
+            var organism = "";
+            if ($("#human").get(0).checked)
+                organism = organism + "human;";
+            if ($("#2019-nCoV").get(0).checked)
+                organism = organism + "sars-cov-2";
+            url = url + organism;
+            $("#result").html("<p>Please wait...</p>");
+            $("#result").load(url);
+        });
+
+        $("#TargetAll").click(function () {
+            var url = "SelectTarget.php";
+            url = url + "?TargetName=";
+            url = url + "&UniProtID=";
+            url = url + "&PDBID=";
+            url = url + "&Organism=";
+            $("#result").html("<p>Please wait...</p>");
+            $("#result").load(url);
+        });
+
+        $("#TargetClear").click(function () {
+
+            $("#TargetName").val("");
+            $("#UniProtID").val("");
+            $("#PDBID").val("");
+            $("#human").get(0).checked = 0;
+            $("#2019-nCoV").get(0).checked = 0;
+            $("#result").html("<p>&nbsp;</p>");
+
+        });
+
+    });
+
+</script>
+
+<!-- Template Main JS File -->
+<script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

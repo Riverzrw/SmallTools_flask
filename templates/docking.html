@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>小工具平台 - Index</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/assets/img/tsl.png" rel="icon">
+    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet">
+
+    <link href="static/assets/css/my.css" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- ======= Header ======= -->
+<header id="header">
+    <div class="container">
+
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="index.html"><span>星斗云</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav class="nav-menu float-right d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="/index">首页 <i class="la la-angle-down"></i></a></li>
+                <li><a href="/docking">虚拟对接</a></li>
+                <li><a href="/get_target">靶点筛选</a></li>
+                {#                <li><a href="/article">最近文章</a></li>#}
+                {#                <li><a href="/other">其他链接</a></li>#}
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Docking Section ======= -->
+<section id="team" class="team">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>虚拟筛选</h2>
+            <p> AutoDock是一款开源的分子模拟软件，为科研工作者研究生物大分子（蛋白质）与小分子（配体）复合物的相互作用，提供了极大的便利</p>
+        </div>
+        <!-- ======= Counts Section ======= -->
+        <section class="counts section-bg">
+            <div class="content-main">
+                <div class="container">
+
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+
+                            $("#TargetSelect").click(function () {
+                                var url = "SelectTarget.php";
+                                url = url + "?TargetName=" + $("#TargetName").val().toLowerCase().split(' ').join('%20');
+                                url = url + "&UniProtID=" + $("#UniProtID").val().toLowerCase().split(' ').join('%20');
+                                url = url + "&PDBID=" + $("#PDBID").val().toLowerCase().split(' ').join('%20');
+                                url = url + "&Organism=";
+                                var organism = "";
+                                if ($("#human").get(0).checked)
+                                    organism = organism + "human;";
+                                if ($("#2019-nCoV").get(0).checked)
+                                    organism = organism + "sars-cov-2";
+                                url = url + organism;
+                                $("#result").html("<p>Please wait...</p>");
+                                $("#result").load(url);
+                            });
+
+                            $("#TargetAll").click(function () {
+                                var url = "SelectTarget.php";
+                                url = url + "?TargetName=";
+                                url = url + "&UniProtID=";
+                                url = url + "&PDBID=";
+                                url = url + "&Organism=";
+                                $("#result").html("<p>Please wait...</p>");
+                                $("#result").load(url);
+                            });
+
+                            $("#TargetClear").click(function () {
+
+                                $("#TargetName").val("");
+                                $("#UniProtID").val("");
+                                $("#PDBID").val("");
+                                $("#human").get(0).checked = 0;
+                                $("#2019-nCoV").get(0).checked = 0;
+                                $("#result").html("<p>&nbsp;</p>");
+
+                            });
+
+                        });
+                    </script>
+                    <style type="text/css">
+                        td {
+                            padding: 2px
+                        }
+                    </style>
+
+                    <div class="col-md-9 col-sm-9 col-lg-9 top-right">
+                        <div class="content">
+                            <div class="grids">
+                                <div class="grid box">
+                                    <div class="grid-header">
+                                        <h3>D3Docking</h3>
+                                    </div>
+                                    <div class="singlepage">
+									<span style="color:red">Your result is visible to all users as you are currently a
+										guest user. <br><a href="../register.php" style="color:red" pcked="done">You may
+											register for protecting your files.</a></span><br><br><span
+                                            style="color:red">Currently, there are <strong>0</strong> waiting-jobs in
+										queue...<br>It takes <strong>2-3</strong> hours in average for a
+										job.</span><br><br>
+                                        <form id="task_submit" action="php_upload_insert_db.php" method="post"
+                                              enctype="multipart/form-data" class="">
+                                            <fieldset style="padding:10px 10px 10px;">
+                                                <legend>Step 1. To set job title</legend>
+                                                <label for="task_title">Job Title:</label>
+                                                <input name="task_title" type="text" id="task_title"
+                                                       value="title_220922163753" size="40" maxlength="255">
+                                            </fieldset>
+                                            <p>&nbsp;</p>
+                                            <fieldset style="padding:10px 10px 10px;">
+                                                <legend>Step 2. To upload ligand file (.sdf or .mol2)</legend>
+                                                <label for="ligand_file">Molecule File:</label>
+                                                <input type="file" name="ligand_file" accept="/sdf,/mol"> <a
+                                                    href="./test.sdf" target="_blank" pcked="done">Sample File 1</a><br>
+                                                <small>File : The three-dimensional molecular structure file(sdf file or
+                                                    mol2 file).<br>
+                                                    <p>Note: <br>
+                                                        1. The submitted small molecule name cannot contain spaces and
+                                                        other
+                                                        special characters, such as "/", "(", ")", "#", "$", "%", "&amp;",
+                                                        etc.<br>
+                                                        2. For limited computer resources currently available, only one
+                                                        molecule is calculated for one job.Please contact<a
+                                                                href="mailto:xbzhang@simm.ac.cn" pcked="done">us</a> if
+                                                        you
+                                                        want
+                                                        to run docking for multiple molecules.</p>
+                                                </small>
+                                            </fieldset>
+                                            <p>&nbsp;</p>
+                                            <fieldset style="padding:10px 10px 10px;">
+                                                <legend>Step 3. To select proteins</legend>
+                                                <table>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="120" valign="top">Target Name:</td>
+                                                        <td>
+                                                            <input type="text" id="TargetName" name="TargetName"
+                                                                   size="50">&nbsp;(Format: target1; target2; ... e.g.
+                                                            ORF1ab; Spike)
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Protein ID / Uniprot ID:</td>
+                                                        <td>
+                                                            <input type="text" id="UniProtID" name="UniProtID"
+                                                                   size="50">&nbsp;(Format: Protein_id1; Protein_id2;
+                                                            ...)
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Template PDB ID:</td>
+                                                        <td>
+                                                            <input type="text" id="PDBID" name="PDBID"
+                                                                   size="50">&nbsp;(Format: PDB_ID1; PDB_ID2; ...)
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Organism:</td>
+                                                        <td><input id="human" type="checkbox" value="human">human <input
+                                                                id="2019-nCoV" type="checkbox"
+                                                                value="sars-cov-2">SARS-CoV-2
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <input id="TargetAll" type="button" value="All"
+                                                       style="padding:0px 5px;">&nbsp;<input id="TargetSelect"
+                                                                                             type="button"
+                                                                                             value="Select"
+                                                                                             style="padding:0px 5px;">&nbsp;<input
+                                                    id="TargetClear"
+                                                    type="button" value="Clear" style="padding:0px 5px;">
+                                                <div id="result"></div>
+                                            </fieldset>
+                                            <p><input id="submit" type="submit" value="Submit" style="padding:0px 5px;">
+                                            </p>
+                                        </form>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+</section>
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Mamba</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+
+</body>
+
+
+</html>

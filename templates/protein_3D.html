@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>小工具平台 - Index</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="../static/assets/img/tsl.png" rel="icon">
+    <link href="../static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../static/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header">
+    <div class="container">
+
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="index.html"><span>星斗云</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav class="nav-menu float-right d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="/index">首页 <i class="la la-angle-down"></i></a></li>
+                <li><a href="/docking_new">虚拟对接</a></li>
+                <li><a href="/protein_3D">蛋白三维结构预测</a></li>
+                <li><a href="/get_target">药物靶点收集</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Our Team Section ======= -->
+<section id="team" class="team">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>蛋白三维结构预测</h2>
+            <p>
+                蛋白质结构预测是指从蛋白质的氨基酸序列中预测蛋白质的三维结构。即从蛋白质的一级结构预测它的折叠和二级、
+                三级、 四级结构。蛋白质结构预测是生物信息学与理论化学所追求的最重要目标之一；
+                在医学（例如，在药物设计）和生物技术上（例如，新的酶的设计）都有着非常重要的意义。
+                在2020年举办的第4届蛋白质结构预测的关键评估（CASP）竞赛中，AlphaFold2表现良好，中位分数为92.4（满分100分），准确度远远高于其他任何程序。2021年7月，AlphaFold2论文在<i>《自然》</i>杂志上作为开源软件和可搜索的物种蛋白质组数据库一起发表，
+                它被广泛认为是使用深度神经网络方法预测蛋白质3D结构的突破性里程碑。AlphaFold蛋白质结构数据库提供对超过2亿个蛋白质结构预测的开放访问，以加速科学研究。
+            </p>
+            <p>
+                根据官方文件，Alphafold在Google Cloud上进行了测试，
+                在尝试了一段时间后，我们发现设置一个运行AlphaFold的环境并不容易，例如，下载数据需要很长时间。
+                为了使AlphaFold更易于公司内部使用，我们开发了一个运行AlphaFod的无服务器web平台。
+            </p>
+
+
+        </div>
+        <!-- ======= Main Body Section ======= -->
+        <section class="counts section-bg">
+            <div class="content-main">
+                <div class="container">
+                    <div>
+                        <div class="content">
+                            <div class="grids">
+                                <div class="grid box">
+                                    <div class="singlepage">
+									<span style="color:red"> 由于您当前是访客用户，因此所有用户都可以看到您的结果。<br>
+                                        <a href="../register.php" style="color:red" pcked="done">您可以注册或登录以保护您的文件。
+                                        </a>
+                                    </span>
+                                        <br>
+                                        <br>
+                                        <form id="task_submit" action="/docking/check" method="post"
+                                              enctype="multipart/form-data" class="">
+                                            <fieldset style="padding:10px 10px 10px;">
+                                                <legend>第一步： 设置任务名</legend>
+
+                                                <p>
+
+                                                    <input name="task_title" type="text" id="task_title"
+                                                           placeholder="My_job">
+                                                </p>
+                                            </fieldset>
+                                            <p>&nbsp;</p>
+                                            <fieldset style="padding:10px 10px 10px;">
+                                                <legend>第二步：输入蛋白序列</legend>
+
+                                                <p>
+                                                    <style>
+                                                        textarea {
+                                                            width: 100%;
+                                                            height: 100%;
+
+                                                        }
+                                                    </style>
+                                                    <textarea wrap="soft" name="aa_sequence"
+                                                              placeholder="text" required form="task_submit">
+
+                                                    </textarea>
+                                                </p>
+                                                <br>
+                                                <small>
+                                                    <p>注： <br>
+                                                        1. 输入fasta格式文件；<br>
+                                                        2. 每次仅能输入一个蛋白质，并且长度不得超过1000AA。如果您有大蛋白质或许多蛋白质可以折叠，请联系<a
+                                                                href="tsl-zhangruiwen@tasly.com" pcked="done">我们</a>。
+                                                    </p>
+                                                </small>
+                                            </fieldset>
+
+                                            <p align="center">
+                                                <input id="TargetClear" type="reset" value="清空"
+                                                       style="padding:0px 5px;">
+                                                &nbsp;&nbsp;
+                                                <input id="submit" type="submit" value="提交"
+                                                       style="padding:0px 5px;">
+                                            </p>
+                                        </form>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section><!-- End Counts Section -->
+
+    </div>
+</section><!-- End Our Team Section -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Mamba</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="static/assets/vendor/jquery/jquery.min.js"></script>
+<script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="static/assets/vendor/php-email-form/validate.js"></script>
+<script src="static/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+<script src="static/assets/vendor/venobox/venobox.min.js"></script>
+<script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="static/assets/vendor/counterup/counterup.min.js"></script>
+<script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/assets/vendor/aos/aos.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#TargetSelect").click(function () {
+            var url = "SelectTarget.php";
+            url = url + "?TargetName=" + $("#TargetName").val().toLowerCase().split(' ').join('%20');
+            url = url + "&UniProtID=" + $("#UniProtID").val().toLowerCase().split(' ').join('%20');
+            url = url + "&PDBID=" + $("#PDBID").val().toLowerCase().split(' ').join('%20');
+            url = url + "&Organism=";
+            var organism = "";
+            if ($("#human").get(0).checked)
+                organism = organism + "human;";
+            if ($("#2019-nCoV").get(0).checked)
+                organism = organism + "sars-cov-2";
+            url = url + organism;
+            $("#result").html("<p>Please wait...</p>");
+            $("#result").load(url);
+        });
+
+        $("#TargetAll").click(function () {
+            var url = "SelectTarget.php";
+            url = url + "?TargetName=";
+            url = url + "&UniProtID=";
+            url = url + "&PDBID=";
+            url = url + "&Organism=";
+            $("#result").html("<p>Please wait...</p>");
+            $("#result").load(url);
+        });
+
+        $("#TargetClear").click(function () {
+
+            $("#TargetName").val("");
+            $("#UniProtID").val("");
+            $("#PDBID").val("");
+            $("#human").get(0).checked = 0;
+            $("#2019-nCoV").get(0).checked = 0;
+            $("#result").html("<p>&nbsp;</p>");
+
+        });
+
+    });
+
+</script>
+
+<!-- Template Main JS File -->
+<script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>
