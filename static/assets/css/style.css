@@ -100,7 +100,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   transition: all 0.5s;
   transition: all 0.5s;
   padding: 10px 0;
-  background: #fff;
+  background: #26334a;
   z-index: 997;
 }
 
@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 .nav-menu a {
   display: block;
   position: relative;
-  color: #5c768d;
+  color: #fff;
   padding: 12px 15px;
   transition: 0.3s;
   font-size: 14px;
@@ -491,7 +491,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 30px 80px;
+  /*padding: 30px 80px;*/
 }
 
 .section-bg {
